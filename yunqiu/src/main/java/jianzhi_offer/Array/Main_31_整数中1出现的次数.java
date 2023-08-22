@@ -8,17 +8,15 @@ package jianzhi_offer.Array;
 public class Main_31_整数中1出现的次数 {
     public static int NumberOf1Between1AndN_Solution(int n) {
         int count = 0;
-        String s="";
-        for(int i = 1;i<=n;i++){
-            s= i+"";
-            count += s.length()-s.replaceAll("1", "").length();
-            s.isEmpty();
+        for (int i = 1; i <= n; i++) {
+            count += String.valueOf(i).split("1").length - 1;
         }
         return count;
     }
 
 
     public static void main(String[] args) {
-     NumberOf1Between1AndN_Solution(10);
+
+        System.out.println(NumberOf1Between1AndN_Solution(19));
     }
 }

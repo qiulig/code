@@ -12,36 +12,37 @@ public class Main_16_合并两个排序的链表 {
             this.val = val;
         }
     }
+
     public static class Solution {
-        public static ListNode Merge(ListNode list1,ListNode list2) {
-            if(list1 == null && list2 == null)
+        public static ListNode Merge(ListNode list1, ListNode list2) {
+            if (list1 == null && list2 == null)
                 return null;
-            if(list1 == null && list2 != null)
+            if (list1 == null)
                 return list2;
-            if(list2 == null && list1 != null)
+            if (list2 == null)
                 return list1;
             ListNode tmp = new ListNode(-1);
             ListNode res = tmp;
-            while(list1 != null && list2 != null){
-                if(list1.val<list2.val){
+            while (list1 != null && list2 != null) {
+                if (list1.val < list2.val) {
                     tmp.next = new ListNode(list1.val);
                     tmp = tmp.next;
                     list1 = list1.next;
 
-                }else{
+                } else {
                     tmp.next = new ListNode(list2.val);
                     tmp = tmp.next;
                     list2 = list2.next;
 
                 }
             }
-            while (list1!=null){
+            while (list1 != null) {
                 tmp.next = new ListNode(list1.val);
                 tmp = tmp.next;
                 list1 = list1.next;
 
             }
-            while(list2!=null){
+            while (list2 != null) {
                 tmp.next = new ListNode(list2.val);
                 tmp = tmp.next;
                 list2 = list2.next;
@@ -63,9 +64,9 @@ public class Main_16_合并两个排序的链表 {
         ListNode l22 = new ListNode(6);
         list2.next = l11;
         l11.next = l22;
-        ListNode res = Solution.Merge(list1,list2);
-        while(res!=null){
-            System.out.print(res.val+" ");
+        ListNode res = Solution.Merge(list1, list2);
+        while (res != null) {
+            System.out.print(res.val + " ");
             res = res.next;
         }
     }
